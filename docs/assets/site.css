@@ -1,6 +1,7 @@
 /* Warehouse District Art Hop site theme.
    Palette and type mirror the original Squarespace site:
-   off-white ground, near-black ink, one orange accent;
+   off-white ground, near-black ink for copy, one orange accent for
+   headings, nav, links and buttons (kept off body copy for readability);
    Staatliches for headings, Dosis for body, Newsreader for nav and buttons. */
 
 :root {
@@ -121,7 +122,7 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
 }
 .hero .map-cta a { color: var(--ink); text-decoration: underline; text-underline-offset: 0.15em; }
 .hero .intro { max-width: 44rem; }
-.hero .intro p { color: var(--accent); font-size: 1.1rem; }
+.hero .intro p { color: var(--ink); font-size: 1.1rem; }
 
 /* ── highlights grid ─────────────────────────────────────────────────── */
 .highlights {
@@ -129,7 +130,7 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1.5rem;
 }
-.highlights p { margin: 0; color: var(--accent); }
+.highlights p { margin: 0; color: var(--ink); }
 .highlights img {
     display: block;
     width: 100%;
@@ -165,9 +166,9 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
     vertical-align: middle;
 }
 .venue .meta { margin: 0.25em 0 0; font-size: 0.95rem; color: var(--muted); }
-.venue .blurb p { color: var(--accent); margin-bottom: 0.6em; }
+.venue .blurb p { color: var(--ink); margin-bottom: 0.6em; }
 .venue .blurb p:last-child { margin-bottom: 0; }
-.venue .note { color: var(--ink) !important; font-weight: 700; }
+.venue .note { font-weight: 700; }
 @media (max-width: 640px) {
     .venue { grid-template-columns: 1fr; gap: 0.5rem; }
 }
