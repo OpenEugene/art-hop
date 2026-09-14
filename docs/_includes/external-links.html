@@ -1,0 +1,17 @@
+{% comment %}
+  Opens off-site links in a new tab. Wiki page bodies are plain markdown,
+  so the target attribute is added here rather than in every page.
+  Same-host links, mailto links, and anchors are left alone.
+{% endcomment %}
+<script>
+  (function () {
+    var links = document.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (a.protocol !== 'http:' && a.protocol !== 'https:') continue;
+      if (a.hostname === location.hostname) continue;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  })();
+</script>
