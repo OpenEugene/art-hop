@@ -2,6 +2,6 @@
 <header class="topnav">
   <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
   <nav>
-    {% for item in cfg.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+    {% for item in cfg.nav %}{% assign active = false %}{% if item.url == page.url %}{% assign active = true %}{% elsif item.url != "/" and page.url contains item.url %}{% assign active = true %}{% endif %}<a href="{{ item.url | relative_url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>{% endfor %}
   </nav>
 </header>

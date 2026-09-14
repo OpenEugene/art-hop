@@ -68,27 +68,34 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem 1rem;
-    padding: 1rem 1.5rem;
+    padding: 1.4rem 1.5rem;
     max-width: var(--max);
     margin: 0 auto;
-    font-family: var(--ui);
+    font-family: var(--body);
 }
 .topnav .brand {
     font-family: var(--heading);
     text-transform: uppercase;
     color: var(--accent);
     text-decoration: none;
-    font-size: 1.1rem;
-    letter-spacing: 0.02em;
+    font-size: 1.35rem;
+    letter-spacing: 0.01em;
 }
+.topnav nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.9rem; }
 .topnav nav a {
-    color: var(--ink);
+    color: var(--accent);
     text-decoration: none;
-    margin-left: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.2;
+    padding-bottom: 0.15rem;
+    border-bottom: 2px solid transparent;
 }
-.topnav nav a:hover { color: var(--accent); }
+.topnav nav a:hover { text-decoration: none; border-bottom-color: var(--accent); }
+.topnav nav a.is-active { border-bottom-color: var(--accent); }
 @media (max-width: 640px) {
-    .topnav nav a { margin: 0 1rem 0 0; }
+    .topnav nav { gap: 0.25rem 1.1rem; }
+    .topnav nav a { font-size: 1.05rem; }
 }
 
 /* ── home hero ───────────────────────────────────────────────────────── */
