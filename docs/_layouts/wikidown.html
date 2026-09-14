@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% capture ptitle %}{% include page-title.html p=page %}{% endcapture %}{% assign ptitle = ptitle | strip %}
-  <title>{% if ptitle != "" and ptitle != "Home" %}{{ ptitle }} · {% endif %}{{ site.title }}</title>
-  {% include head.html %}
+  {% if ptitle != "" and ptitle != "Home" %}{% assign fulltitle = ptitle | append: " · " | append: site.title %}{% else %}{% assign fulltitle = site.title %}{% endif %}
+  <title>{{ fulltitle }}</title>
+  {% include head.html title=fulltitle %}
 </head>
 <body class="interior">
   {% include nav.html %}
