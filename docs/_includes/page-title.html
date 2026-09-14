@@ -1,0 +1,12 @@
+{% comment %}
+  Outputs a page's title. Param: p (a page object).
+  Wikidown pages have no front matter and the breadcrumb sits above the
+  H1, so jekyll-titles-from-headings does not fire. Read the first H1
+  from the content (raw markdown or rendered HTML), else fall back to the
+  file name with hyphens as spaces.
+{% endcomment %}
+{% capture nl %}
+{% endcapture %}
+{% assign found = "" %}
+{% if include.p.title and include.p.title != "" %}{% assign found = include.p.title %}{% else %}{% assign tlines = include.p.content | split: nl %}{% for tl in tlines %}{% if found == "" %}{% assign ts = tl | strip %}{% assign t2 = ts | slice: 0, 2 %}{% assign t3 = ts | slice: 0, 3 %}{% if t2 == "# " %}{% assign found = ts | remove_first: "# " | strip %}{% elsif t3 == "<h1" %}{% assign found = ts | strip_html | strip %}{% endif %}{% endif %}{% endfor %}{% endif %}
+{% if found == "" %}{% assign found = include.p.basename | replace: "-", " " %}{% endif %}{{ found }}

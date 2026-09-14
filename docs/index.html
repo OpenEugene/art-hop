@@ -39,7 +39,8 @@ layout: none
   {% assign fp = site.pages | where: "path", hop.feature | first %}
   {% if fp %}
   <section class="wrap feature">
-    <h2>{{ fp.title }}</h2>
+    {% capture ftitle %}{% include page-title.html p=fp %}{% endcapture %}
+    <h2>{{ ftitle | strip }}</h2>
     {% capture ftxt %}{% include page-body.html path=hop.feature strip_title=true %}{% endcapture %}
     <p>{{ ftxt | strip_html | strip_newlines | truncatewords: 70 }}</p>
     <p><a class="btn" href="{{ fp.url | relative_url }}">Read the feature</a></p>

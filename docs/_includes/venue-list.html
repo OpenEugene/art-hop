@@ -7,7 +7,8 @@
 <div class="venues">
 {% for entry in hop.venues %}{% assign vp = site.pages | where: "path", entry.page | first %}{% if vp %}
   <article class="venue">
-    <h3><a href="{{ vp.url | relative_url }}">{{ vp.title }}</a></h3>
+    {% capture vtitle %}{% include page-title.html p=vp %}{% endcapture %}
+    <h3><a href="{{ vp.url | relative_url }}">{{ vtitle | strip }}</a></h3>
     <div class="blurb">
       {% include page-body.html path=entry.page strip_title=true %}
       {% if entry.note %}<p class="note">{{ entry.note }}</p>{% endif %}

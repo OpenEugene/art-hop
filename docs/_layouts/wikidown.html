@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% capture ptitle %}{% include page-title.html p=page %}{% endcapture %}{% assign ptitle = ptitle | strip %}
+  <title>{% if ptitle != "" and ptitle != "Home" %}{{ ptitle }} · {% endif %}{{ site.title }}</title>
   {% include head.html %}
 </head>
 <body class="interior">

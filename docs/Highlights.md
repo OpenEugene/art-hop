@@ -2,7 +2,7 @@
 
 # Highlights
 
-Each paragraph below is one tile on the home page. Put the image first, then the caption, in the same paragraph.
+<!-- Each paragraph below is one tile on the home page. Put the image first, then the caption, in the same paragraph. -->
 
 01 Epic eats at Viking Brewing. Seriously, the food was so good. After biking around for a few hours we were so grateful to land there for an early dinner.
 
