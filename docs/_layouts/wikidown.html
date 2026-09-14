@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% include head.html %}
+</head>
+<body class="interior">
+  {% include nav.html %}
+
+  <main class="page{% if page.path == 'Map.md' %} map-page{% endif %}" id="content">
+    {{ content }}
+    {% if page.path == "Map.md" %}{% include hop-map.html %}{% endif %}
+    {% if page.path == "Membership.md" %}{% include membership.html %}{% endif %}
+    {% if page.path == "Mailing-List.md" %}{% include newsletter.html %}{% endif %}
+  </main>
+
+  {% include footer.html %}
+
+  <script>
+    (function () {
+      var first = document.querySelector('#content > p:first-child');
+      if (first && first.innerHTML.indexOf('wikidown:breadcrumb') !== -1) first.classList.add('breadcrumb');
+    })();
+  </script>
+</body>
+</html>

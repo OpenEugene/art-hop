@@ -1,0 +1,7 @@
+{% assign cfg = site.data.site %}
+<header class="topnav">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <nav>
+    {% for item in cfg.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+  </nav>
+</header>

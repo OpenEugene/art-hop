@@ -1,0 +1,69 @@
+---
+layout: none
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  {% include head.html %}
+</head>
+<body class="home">
+  {% include nav.html %}
+  {% assign cfg = site.data.site %}
+  {% assign hop = site.data.hops[cfg.currentHop] %}
+  {% assign minprice = cfg.membership.tiers | map: "price" | sort | first %}
+
+  <section class="hero wrap">
+    <p class="kicker">the west eugene art scene</p>
+    <h1 class="giant">The Art Hop</h1>
+    {% if hop %}
+    <p class="map-cta"><a href="{{ '/Map.html' | relative_url }}">{{ hop.date | date: "%B" }} art hop map here</a></p>
+    {% endif %}
+    <div class="intro">{% include page-body.html path="Home.md" strip_title=true %}</div>
+    <p><a class="btn" href="{{ '/Membership.html' | relative_url }}">Become a supporting member of The Art Hop for as little as ${{ minprice }} per month</a></p>
+  </section>
+
+  {% assign hl = site.pages | where: "path", "Highlights.md" | first %}
+  {% if hl %}
+  <section class="band">
+    <div class="wrap">
+      <h2>highlights from early hops</h2>
+      <div class="highlights">{% include page-body.html path="Highlights.md" strip_title=true %}</div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if hop.feature and hop.feature != "" %}
+  {% assign fp = site.pages | where: "path", hop.feature | first %}
+  {% if fp %}
+  <section class="wrap feature">
+    <h2>{{ fp.title }}</h2>
+    {% capture ftxt %}{% include page-body.html path=hop.feature strip_title=true %}{% endcapture %}
+    <p>{{ ftxt | strip_html | strip_newlines | truncatewords: 70 }}</p>
+    <p><a class="btn" href="{{ fp.url | relative_url }}">Read the feature</a></p>
+  </section>
+  {% endif %}
+  {% endif %}
+
+  {% if hop %}
+  <section class="wrap venues-section">
+    <h2>{{ hop.date | date: "%B" }}'s participating venues</h2>
+    {% include venue-list.html %}
+  </section>
+  {% endif %}
+
+  <section class="band">
+    <div class="wrap">{% include newsletter.html %}</div>
+  </section>
+
+  <section class="wrap">
+    <h2>Become a supporting member</h2>
+    {% include page-body.html path="Membership.md" strip_title=true %}
+    {% include membership.html %}
+  </section>
+
+  {% include footer.html %}
+</body>
+</html>

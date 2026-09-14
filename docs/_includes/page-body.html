@@ -1,0 +1,18 @@
+{% comment %}
+  Renders the body of another wiki page inline.
+  Params: path (e.g. "Venues/Pinebox.md"), strip_title (true to drop the H1).
+  Drops the Wikidown breadcrumb line, optionally the first H1, then
+  markdownifies. Works whether Jekyll hands us raw markdown or already
+  rendered HTML for the target page.
+{% endcomment %}
+{% assign wp = site.pages | where: "path", include.path | first %}
+{% if wp %}
+{% capture nl %}
+{% endcapture %}
+{% assign parts = wp.content | split: "<!-- wikidown:breadcrumb -->" %}
+{% assign raw = parts | last %}
+{% assign lines = raw | split: nl %}
+{% assign skipped = false %}
+{% capture body %}{% for line in lines %}{% assign head2 = line | strip | slice: 0, 2 %}{% assign head3 = line | strip | slice: 0, 3 %}{% if include.strip_title and skipped == false and head2 == "# " or include.strip_title and skipped == false and head3 == "<h1" %}{% assign skipped = true %}{% else %}{{ line }}{{ nl }}{% endif %}{% endfor %}{% endcapture %}
+{{ body | markdownify }}
+{% endif %}

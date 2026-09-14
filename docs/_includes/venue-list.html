@@ -1,0 +1,17 @@
+{% comment %}
+  This month's participating venues, from _data/hops/<currentHop>.json.
+  Each entry names a venue wiki page; the page body is the blurb.
+{% endcomment %}
+{% assign cfg = site.data.site %}
+{% assign hop = site.data.hops[cfg.currentHop] %}
+<div class="venues">
+{% for entry in hop.venues %}{% assign vp = site.pages | where: "path", entry.page | first %}{% if vp %}
+  <article class="venue">
+    <h3><a href="{{ vp.url | relative_url }}">{{ vp.title }}</a></h3>
+    <div class="blurb">
+      {% include page-body.html path=entry.page strip_title=true %}
+      {% if entry.note %}<p class="note">{{ entry.note }}</p>{% endif %}
+    </div>
+  </article>
+{% endif %}{% endfor %}
+</div>

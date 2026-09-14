@@ -1,0 +1,15 @@
+{% assign cfg = site.data.site %}
+<footer>
+  <div class="social">
+    {% if cfg.social.instagram %}<a href="{{ cfg.social.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+    {% if cfg.email %}<a href="mailto:{{ cfg.email }}">Email</a>{% endif %}
+    {% if cfg.social.facebook %}<a href="{{ cfg.social.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+  </div>
+  {% if cfg.email %}
+  <div class="contact">
+    <p>Have a question, comment, or want to get involved? Contact:</p>
+    <a href="mailto:{{ cfg.email }}">{{ cfg.email }}</a>
+  </div>
+  {% endif %}
+  <p class="small">{{ site.title }} · Published with <a href="https://wikidown.org/" target="_blank" rel="noopener">Wikidown</a> and GitHub Pages</p>
+</footer>

@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-05",
+  "time": "",
+  "map": "",
+  "feature": "",
+  "venues": [
+    { "page": "Venues/The-Oblivion-Gallery.md" },
+    { "page": "Venues/Viking-Brewing.md" },
+    { "page": "Venues/Spetzler-Designs.md" },
+    { "page": "Venues/Pinebox.md" },
+    { "page": "Venues/Caffe-Pacori.md" },
+    { "page": "Venues/Blunt-Graffix.md" },
+    { "page": "Venues/Shadowfox.md" },
+    { "page": "Venues/Wheelhaus-Arts.md" },
+    { "page": "Venues/Eugene-Textile-Center.md" },
+    { "page": "Venues/Fittis-Pizza.md" },
+    { "page": "Venues/Eugene-Makerspace.md" },
+    { "page": "Venues/Hot-Tees.md" },
+    { "page": "Venues/Studio-West.md" },
+    { "page": "Venues/Curious-Collective.md" }
+  ]
+}

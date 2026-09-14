@@ -1,0 +1,11 @@
+{% assign cfg = site.data.site %}
+<div class="membership">
+  <div class="tiers">
+    {% for t in cfg.membership.tiers %}
+    <a class="tier" href="{{ t.url }}"{% if t.url contains '://' %} target="_blank" rel="noopener"{% endif %}>
+      <span class="name">{{ t.name }}</span>
+      <span class="price">${{ t.price }} / month</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>

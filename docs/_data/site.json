@@ -1,0 +1,39 @@
+{
+  "currentHop": "2026-09",
+  "name": "Warehouse District Art Hop",
+  "email": "warehousedistrictarthop@gmail.com",
+  "social": {
+    "instagram": "https://www.instagram.com/warehousedistrictarthop/",
+    "facebook": "https://www.facebook.com/the.art.hop.2025/"
+  },
+  "nav": [
+    { "title": "Home", "url": "/" },
+    { "title": "Map", "url": "/Map.html" },
+    { "title": "Venues", "url": "/Venues.html" },
+    { "title": "Past Features", "url": "/Features.html" },
+    { "title": "Become a Member", "url": "/Membership.html" },
+    { "title": "Mailing List", "url": "/Mailing-List.html" },
+    { "title": "About", "url": "/About.html" }
+  ],
+  "membership": {
+    "tiers": [
+      { "name": "Founding Fan", "price": 3, "url": "https://www.warehousedistrictarthop.com/store/p/founding-fan" },
+      { "name": "Big Believer", "price": 5, "url": "https://www.warehousedistrictarthop.com/store/p/big-believer" },
+      { "name": "Super Supporter", "price": 10, "url": "https://www.warehousedistrictarthop.com/store/p/super-supporter-1" },
+      { "name": "Fiscal Friend", "price": 15, "url": "https://www.warehousedistrictarthop.com/store/p/fiscal-friend" },
+      { "name": "Artists' Advocate", "price": 20, "url": "https://www.warehousedistrictarthop.com/store/p/artists-advocate" },
+      { "name": "Howie's Hero", "price": 40, "url": "https://www.warehousedistrictarthop.com/store/p/super-supporter" }
+    ]
+  },
+  "newsletter": {
+    "provider": "brevo",
+    "formAction": "",
+    "embedUrl": ""
+  },
+  "oqtane": {
+    "baseUrl": "",
+    "endpoints": {
+      "getInvolved": "/get-involved"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{% assign cfg = site.data.site %}
+{% assign hop = site.data.hops[cfg.currentHop] %}
+<div class="hop-map">
+  {% if hop %}
+  <p class="hop-when">{{ hop.date | date: "%A, %B %-d, %Y" }}{% if hop.time and hop.time != "" %} · {{ hop.time }}{% endif %}</p>
+  {% if hop.map and hop.map != "" %}
+  <img src="{{ hop.map | relative_url }}" alt="{{ hop.date | date: '%B %Y' }} Art Hop map">
+  <p>Take a screenshot of this map to reference throughout the event.</p>
+  {% else %}
+  <p>This month's map is coming soon.</p>
+  {% endif %}
+  {% else %}
+  <p>No Art Hop is scheduled right now. Check back soon.</p>
+  {% endif %}
+</div>
