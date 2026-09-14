@@ -130,7 +130,13 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
     gap: 1.5rem;
 }
 .highlights p { margin: 0; color: var(--accent); }
-.highlights img { display: block; width: 100%; margin-bottom: 0.5rem; }
+.highlights img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
 
 /* ── feature spotlight ───────────────────────────────────────────────── */
 .feature p { font-size: 1.15rem; max-width: 48rem; }
