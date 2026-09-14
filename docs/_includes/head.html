@@ -14,7 +14,11 @@
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_desc | escape }}">
 <meta name="twitter:image" content="{{ '/assets/og-image.jpg' | absolute_url }}">
-{% if site.favicon %}<link rel="icon" href="{{ site.favicon | relative_url }}">{% endif %}
+{% if site.favicon %}<link rel="icon" href="{{ site.favicon | relative_url }}" sizes="any">{% endif %}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icons/icon-192.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+<meta name="theme-color" content="#ff340a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Newsreader:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
