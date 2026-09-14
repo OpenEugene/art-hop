@@ -140,9 +140,21 @@ section.wrap { padding-top: 3rem; padding-bottom: 3rem; }
 }
 .venue h3 { margin: 0; font-size: 1.4rem; text-transform: none; }
 .venue h3 a { text-decoration: none; }
+.venue h3 .stop {
+    display: inline-block;
+    min-width: 1.6em;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.8em;
+    padding: 0.1em 0.3em;
+    vertical-align: middle;
+}
+.venue .meta { margin: 0.25em 0 0; font-size: 0.95rem; color: var(--muted); }
 .venue .blurb p { color: var(--accent); margin-bottom: 0.6em; }
 .venue .blurb p:last-child { margin-bottom: 0; }
-.venue .note { font-style: italic; color: var(--muted) !important; }
+.venue .note { color: var(--ink) !important; font-weight: 700; }
 @media (max-width: 640px) {
     .venue { grid-template-columns: 1fr; gap: 0.5rem; }
 }

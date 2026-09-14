@@ -1,22 +1,21 @@
 {
   "date": "2026-09-05",
-  "time": "",
-  "map": "",
+  "time": "Hours vary by venue",
+  "map": "/.attachments/maps/2026-09.webp",
   "feature": "",
   "venues": [
-    { "page": "Venues/The-Oblivion-Gallery.md" },
-    { "page": "Venues/Viking-Brewing.md" },
-    { "page": "Venues/Spetzler-Designs.md" },
-    { "page": "Venues/Pinebox.md" },
-    { "page": "Venues/Caffe-Pacori.md" },
-    { "page": "Venues/Blunt-Graffix.md" },
-    { "page": "Venues/Shadowfox.md" },
-    { "page": "Venues/Wheelhaus-Arts.md" },
-    { "page": "Venues/Eugene-Textile-Center.md" },
-    { "page": "Venues/Fittis-Pizza.md" },
-    { "page": "Venues/Eugene-Makerspace.md" },
-    { "page": "Venues/Hot-Tees.md" },
-    { "page": "Venues/Studio-West.md" },
-    { "page": "Venues/Curious-Collective.md" }
+    { "stop": 1, "page": "Venues/Spetzler-Designs.md", "address": "2100 W Broadway #19", "hours": "12 to 4pm", "note": "Gary will be a guest at Eugene Makerspace, but the shop and studio is still open to explore and buy his automata." },
+    { "stop": 2, "page": "Venues/Wheelhaus-Arts.md", "address": "125 Cap Court, Unit E", "hours": "2 to 5pm" },
+    { "stop": 3, "page": "Venues/Hot-Tees.md", "address": "2633 Roosevelt Blvd", "hours": "2 to 4pm", "note": "Affordable giclée prints from a variety of our favorite artists in the gallery. Take an insider tour of the screen printing shop and darkroom while enjoying Dr. Banzai's spinning beats." },
+    { "stop": 4, "page": "Venues/Blunt-Graffix.md", "address": "3709 W 1st Ave", "hours": "1 to 6pm", "note": "Street-pop screen prints in their Warehouse District studio." },
+    { "stop": 5, "page": "Venues/Pinebox.md", "address": "575 Garfield St", "hours": "10am to 1pm", "note": "Come check out the latest FRIPP jewelry and the unfolding and development of the Pinebox Collective studio space." },
+    { "stop": 6, "page": "Venues/Caffe-Pacori.md", "address": "255 Wallis St, Ste 3", "hours": "9am to 4pm", "note": "Grab a coffee and check out the newly reset gallery wall." },
+    { "stop": 7, "page": "Venues/Eugene-Makerspace.md", "address": "3890 West 1st Ave", "hours": "1 to 5pm", "note": "Visit our guest Gary Spetzler and his monkey automaton, check out creative projects from our community, or take a tour and see how the makerspace might work for you." },
+    { "stop": 8, "page": "Venues/Golden-Eagle-Mural.md", "address": "2911 West 11th Ave", "hours": "" },
+    { "stop": 9, "page": "Venues/The-Oblivion-Gallery.md", "address": "3923 Cross St", "hours": "11am to 6pm", "note": "Guest artist Ben Silver's exhibition of glass sculpture continues, plus a 2pm slide show and talk by Jud and Renee about their visit to Marfa, Texas, where one of Jud's sculptures was installed in August." },
+    { "stop": 10, "page": "Venues/Viking-Brewing.md", "address": "520 Commercial St, Unit F", "hours": "2 to 8:30pm", "note": "Stop in for refreshments or a snack, enjoy the last days in the hop garden patio, and check out some local art inside the taproom." },
+    { "stop": 11, "page": "Venues/Westish.md", "address": "1009 S Bertelsen Rd", "hours": "11am to 3pm", "note": "The Painted Porch: music by Free Static and Adam Whendt, column painting and conversations." },
+    { "stop": 12, "page": "Venues/Studio-West.md", "address": "3580 W 1st Ave", "hours": "4 to 7pm", "note": "Free snacks and beverages, live glassblowing, and a $40 blow-your-own-glass special." },
+    { "stop": 13, "page": "Venues/Boundless-Builds.md", "address": "490 Seneca Rd, Suite 17", "hours": "6 to 11pm", "note": "Music at 7pm with Blue Note Rival featuring Lynnea Barry, followed by Legends of Amethyst Rock. Complimentary snacks and drinks, tour the fabrication shop, and enter a raffle for a chance to win $250 toward a camper van rental." }
   ]
 }

@@ -18,3 +18,6 @@ Every venue that has taken part in the Warehouse District Art Hop. Which venues 
 - [Hot Tees](Venues/Hot-Tees.md)
 - [Studio West](Venues/Studio-West.md)
 - [Curious Collective](Venues/Curious-Collective.md)
+- [Westish](Venues/Westish.md)
+- [Boundless Builds](Venues/Boundless-Builds.md)
+- [Golden Eagle Mural](Venues/Golden-Eagle-Mural.md)
