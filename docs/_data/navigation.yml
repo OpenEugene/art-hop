@@ -42,6 +42,8 @@
       url: "/Venues/Boundless-Builds.html"
     - title: "Golden Eagle Mural"
       url: "/Venues/Golden-Eagle-Mural.html"
+    - title: "Thornley Craft Construction"
+      url: "/Venues/Thornley-Craft-Construction.html"
 - title: "Features"
   url: "/Features.html"
   prefix: "/Features/"
