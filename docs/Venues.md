@@ -21,3 +21,4 @@ Every venue that has taken part in the Warehouse District Art Hop. Which venues 
 - [Westish](Venues/Westish.md)
 - [Boundless Builds](Venues/Boundless-Builds.md)
 - [Golden Eagle Mural](Venues/Golden-Eagle-Mural.md)
+- [Thornley Craft Construction](Venues/Thornley-Craft-Construction.md)
