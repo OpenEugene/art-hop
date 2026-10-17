@@ -2,6 +2,8 @@
 
 # Membership
 
+**We're making changes!** The Art Hop is moving to new web hosting, and our memberships are changing along with it. The membership options below are being restructured — check back soon for the new sign-up links.
+
 Support the Art Hop! Become a contributing member.
 
 Become a monthly member of The Art Hop not only to help us cover the bases, but to help us grow into a stronger organization that aims to promote the economic vitality of artists in the Warehouse District community.

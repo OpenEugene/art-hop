@@ -17,12 +17,12 @@
   ],
   "membership": {
     "tiers": [
-      { "name": "Founding Fan", "price": 3, "url": "https://www.warehousedistrictarthop.com/store/p/founding-fan" },
-      { "name": "Big Believer", "price": 5, "url": "https://www.warehousedistrictarthop.com/store/p/big-believer" },
-      { "name": "Super Supporter", "price": 10, "url": "https://www.warehousedistrictarthop.com/store/p/super-supporter-1" },
-      { "name": "Fiscal Friend", "price": 15, "url": "https://www.warehousedistrictarthop.com/store/p/fiscal-friend" },
-      { "name": "Artists' Advocate", "price": 20, "url": "https://www.warehousedistrictarthop.com/store/p/artists-advocate" },
-      { "name": "Howie's Hero", "price": 40, "url": "https://www.warehousedistrictarthop.com/store/p/super-supporter" }
+      { "name": "Founding Fan", "price": 3, "url": "/Membership.html" },
+      { "name": "Big Believer", "price": 5, "url": "/Membership.html" },
+      { "name": "Super Supporter", "price": 10, "url": "/Membership.html" },
+      { "name": "Fiscal Friend", "price": 15, "url": "/Membership.html" },
+      { "name": "Artists' Advocate", "price": 20, "url": "/Membership.html" },
+      { "name": "Howie's Hero", "price": 40, "url": "/Membership.html" }
     ]
   },
   "newsletter": {
