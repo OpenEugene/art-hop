@@ -7,22 +7,71 @@
     "facebook": "https://www.facebook.com/the.art.hop.2025/"
   },
   "nav": [
-    { "title": "Home", "url": "/" },
-    { "title": "Map", "url": "/Map.html" },
-    { "title": "Venues", "url": "/Venues.html" },
-    { "title": "Past Features", "url": "/Features.html" },
-    { "title": "Become a Member", "url": "/Membership.html" },
-    { "title": "Mailing List", "url": "/Mailing-List.html" },
-    { "title": "About", "url": "/About.html" }
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "Map",
+      "url": "/Map.html"
+    },
+    {
+      "title": "Winter Wonderfest",
+      "url": "/Winter-Wonderfest.html"
+    },
+    {
+      "title": "Venues",
+      "url": "/Venues.html"
+    },
+    {
+      "title": "Past Features",
+      "url": "/Features.html"
+    },
+    {
+      "title": "Become a Member",
+      "url": "/Membership.html"
+    },
+    {
+      "title": "Mailing List",
+      "url": "/Mailing-List.html"
+    },
+    {
+      "title": "About",
+      "url": "/About.html"
+    }
   ],
   "membership": {
     "tiers": [
-      { "name": "Founding Fan", "price": 3, "url": "/Membership.html" },
-      { "name": "Big Believer", "price": 5, "url": "/Membership.html" },
-      { "name": "Super Supporter", "price": 10, "url": "/Membership.html" },
-      { "name": "Fiscal Friend", "price": 15, "url": "/Membership.html" },
-      { "name": "Artists' Advocate", "price": 20, "url": "/Membership.html" },
-      { "name": "Howie's Hero", "price": 40, "url": "/Membership.html" }
+      {
+        "name": "Founding Fan",
+        "price": 3,
+        "url": "/Membership.html"
+      },
+      {
+        "name": "Big Believer",
+        "price": 5,
+        "url": "/Membership.html"
+      },
+      {
+        "name": "Super Supporter",
+        "price": 10,
+        "url": "/Membership.html"
+      },
+      {
+        "name": "Fiscal Friend",
+        "price": 15,
+        "url": "/Membership.html"
+      },
+      {
+        "name": "Artists' Advocate",
+        "price": 20,
+        "url": "/Membership.html"
+      },
+      {
+        "name": "Howie's Hero",
+        "price": 40,
+        "url": "/Membership.html"
+      }
     ]
   },
   "newsletter": {
