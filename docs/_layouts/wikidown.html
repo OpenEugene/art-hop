@@ -12,7 +12,8 @@
   {% include nav.html %}
 
   <main class="page{% if page.path == 'Map.md' %} map-page{% endif %}" id="content">
-    {{ content }}
+    {% comment %}rellinks: jekyll-relative-links only rewrites Markdown-style links; raw HTML hrefs (e.g. the SVG map hotspots on the Map page) need this filter to reach their .html URLs.{% endcomment %}
+    {{ content | rellinks }}
     {% if page.path == "Map.md" %}{% include hop-map.html %}{% endif %}
     {% if page.path == "Membership.md" %}{% include membership.html %}{% endif %}
     {% if page.path == "Mailing-List.md" %}{% include newsletter.html %}{% endif %}
