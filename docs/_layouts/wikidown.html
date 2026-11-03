@@ -12,8 +12,7 @@
   {% include nav.html %}
 
   <main class="page{% if page.path == 'Map.md' %} map-page{% endif %}" id="content">
-    {% comment %}rellinks: jekyll-relative-links only rewrites Markdown-style links; raw HTML hrefs (e.g. the SVG map hotspots on the Map page) need this filter to reach their .html URLs.{% endcomment %}
-    {{ content | rellinks }}
+    {{ content }}
     {% if page.path == "Map.md" %}{% include hop-map.html %}{% endif %}
     {% if page.path == "Membership.md" %}{% include membership.html %}{% endif %}
     {% if page.path == "Mailing-List.md" %}{% include newsletter.html %}{% endif %}
@@ -25,6 +24,14 @@
     (function () {
       var first = document.querySelector('#content > p:first-child');
       if (first && first.innerHTML.indexOf('wikidown:breadcrumb') !== -1) first.classList.add('breadcrumb');
+      // GitHub Pages pins jekyll-relative-links 0.6.1, which only rewrites
+      // Markdown-style links; the rellinks filter (added in 0.8.0) is not
+      // available. Raw HTML links — e.g. the SVG map hotspots — keep their
+      // .md hrefs, so point them at the rendered .html pages here.
+      var links = document.querySelectorAll('a[href$=".md"]');
+      for (var i = 0; i < links.length; i++) {
+        links[i].setAttribute('href', links[i].getAttribute('href').replace(/\.md(#.*)?$/, '.html$1'));
+      }
     })();
   </script>
   {% include external-links.html %}
