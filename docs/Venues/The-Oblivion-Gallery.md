@@ -3,3 +3,5 @@
 # The Oblivion Gallery
 
 Home of Jud Turner and Renee Mahni and neighboring the artists' workshop; The Oblivion Gallery features rotating guest artists and the latest work of Jud and Renee. Stop by for a captivating gallery experience tucked away in West Eugene. [View The Oblivion Gallery website here.](https://judturner.com/the-oblivion-gallery/)
+
+[Get directions](https://www.google.com/maps/dir/?api=1&destination=3923+Cross+St%2C+Eugene%2C+OR)
