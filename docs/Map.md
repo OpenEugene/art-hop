@@ -23,6 +23,10 @@ a:hover .hotspot, a:focus .hotspot { fill: rgba(255,52,10,.15); stroke: #ff340a;
 <a href="Venues/Fluid-Drape.md"><circle class="hotspot" cx="203" cy="476" r="22"/><title>Fluid Drape - 4216 West 7th Ave unit J, Eugene, OR</title></a>
 </svg>
 
+### At a glance
+
+![November at a glance: hours for all 11 venues, plus the donation QR code](.attachments/maps/2026-11-tldr.jpg)
+
 [View the full printed map](.attachments/maps/2026-11.jpg)
 
 - **1. [Fluid Drape](Venues/Fluid-Drape.md)** — 4216 West 7th Ave unit J, Eugene, OR · 11am to 4pm · [Directions](https://www.google.com/maps/dir/?api=1&destination=44.05125,-123.16375)
