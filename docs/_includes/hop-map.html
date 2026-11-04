@@ -6,8 +6,6 @@
   {% if hop.map and hop.map != "" %}
   <img src="{{ hop.map | relative_url }}" alt="{{ hop.date | date: '%B %Y' }} Art Hop map">
   <p>Take a screenshot of this map to reference throughout the event.</p>
-  {% else %}
-  <p>This month's map is coming soon.</p>
   {% endif %}
   {% else %}
   <p>No Art Hop is scheduled right now. Check back soon.</p>
