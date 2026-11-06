@@ -23,3 +23,4 @@ Every venue that has taken part in the Warehouse District Art Hop. Which venues 
 - [Golden Eagle Mural](Venues/Golden-Eagle-Mural.md)
 - [Thornley Craft Construction](Venues/Thornley-Craft-Construction.md)
 - [Fluid + Drape](Venues/Fluid-Drape.md)
+- [Manifestation](Venues/Manifestation.md)
