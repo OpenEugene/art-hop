@@ -4,10 +4,11 @@
 
 What the venues are posting about the Art Hop, newest first. Follow the hop on Instagram at [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/).
 
-*Last updated Wednesday, November 4, 2026. Updated daily in the week before each hop.*
+*Last updated Friday, November 6, 2026. Updated daily in the week before each hop.*
 
 ## November hop — Saturday, November 7
 
+- **Thu Nov 5 — [@hotteesevents](https://www.instagram.com/hotteesevents/)** (Reel): A rabbit-hole ride through the Nov 7 hop — hit 3 of the 11 stops, collect stamps, and redeem them at Hot Tees for a free limited art poster, 3–6pm, with carnival-style interactive art and $8 personal pizzas from Stretch Food Truck. [View on Instagram](https://www.instagram.com/reel/DfXsCh1P2in/)
 - **Tue Nov 3 — [@hotteesevents](https://www.instagram.com/hotteesevents/)** (Reel): Nov 7 at Hot Tees, 3–6pm — interactive art with Rnance Design and Ahrenholtz Unlimited, a Prize-o-Matic vending machine, Stretch Food Truck outside, a live DJ, and map stamps toward a free poster. [View on Instagram](https://www.instagram.com/reel/DfTJSB6T-AM/)
 - **Tue Nov 3 — [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/)**: Art Hop this Saturday throughout the warehouse district, with a nod to Caffe Pacori and more. [View on Instagram](https://www.instagram.com/p/DfTBXxKPWFt/)
 - **Tue Nov 3 — [@vikingbrewingco](https://www.instagram.com/vikingbrewingco/)**: live music from The Loose End at Viking Brewing for the hop. [View on Instagram](https://www.instagram.com/p/DfSgJlgv2gh/)
