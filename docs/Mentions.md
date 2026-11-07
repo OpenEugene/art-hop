@@ -4,10 +4,14 @@
 
 What the venues are posting about the Art Hop, newest first. Follow the hop on Instagram at [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/).
 
-*Last updated Friday, November 6, 2026. Updated daily in the week before each hop.*
+*Last updated Saturday, November 7, 2026. Updated daily in the week before each hop.*
 
 ## November hop — Saturday, November 7
 
+- **Fri Nov 6 — [@zigzagreusman](https://www.instagram.com/zigzagreusman/)** (Moon Creations): a new banner up just in time for the hop — wares, art, and costumes, 11am–4pm, with a link to the hop map and site. [View on Instagram](https://www.instagram.com/p/Dfar9xqvyTg/)
+- **Fri Nov 6 — [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/)**: "Tomorrow!!!" — the official flyer and map for the Nov 7 hop, all 12 venues with hours and offerings. [View on Instagram](https://www.instagram.com/p/Dfag5DyPaqJ/)
+- **Fri Nov 6 — [@fluidplusdrape](https://www.instagram.com/fluidplusdrape/)**: a hop-day reminder of their Black Friday sale preview — 25% off full-price merchandise, exclusive deals, and a free tote bag with $75+, 11am–4pm. [View on Instagram](https://www.instagram.com/p/DfaZJHJP4kl/)
+- **Fri Nov 6 — [@caffepacori](https://www.instagram.com/caffepacori/)** (Reel): Art Hop Saturday at Pacori, 9–4 — artist Victoria Wolf, live music from The Name of the Sea (2–4), food from Only Yolking and Flour Garden. [View on Instagram](https://www.instagram.com/reel/DfaWddntkGl/)
 - **Thu Nov 5 — [@hotteesevents](https://www.instagram.com/hotteesevents/)** (Reel): A rabbit-hole ride through the Nov 7 hop — hit 3 of the 11 stops, collect stamps, and redeem them at Hot Tees for a free limited art poster, 3–6pm, with carnival-style interactive art and $8 personal pizzas from Stretch Food Truck. [View on Instagram](https://www.instagram.com/reel/DfXsCh1P2in/)
 - **Tue Nov 3 — [@hotteesevents](https://www.instagram.com/hotteesevents/)** (Reel): Nov 7 at Hot Tees, 3–6pm — interactive art with Rnance Design and Ahrenholtz Unlimited, a Prize-o-Matic vending machine, Stretch Food Truck outside, a live DJ, and map stamps toward a free poster. [View on Instagram](https://www.instagram.com/reel/DfTJSB6T-AM/)
 - **Tue Nov 3 — [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/)**: Art Hop this Saturday throughout the warehouse district, with a nod to Caffe Pacori and more. [View on Instagram](https://www.instagram.com/p/DfTBXxKPWFt/)
