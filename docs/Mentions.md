@@ -8,6 +8,8 @@ What the venues are posting about the Art Hop, newest first. Follow the hop on I
 
 ## November hop — Saturday, November 7
 
+- **Sat Nov 7 — [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/)**: the TLDR hours graphic — a quick visual reference for each venue's open hours today. [View on Instagram](https://www.instagram.com/p/DfcwhPHASlV/)
+- **Sat Nov 7 — [@judturner](https://www.instagram.com/judturner/)**: Art Hop day in the Westside Warehouse District — a map to find your way around the venues and happenings. [View on Instagram](https://www.instagram.com/p/DfclKy0kyuX/)
 - **Fri Nov 6 — [@zigzagreusman](https://www.instagram.com/zigzagreusman/)** (Moon Creations): a new banner up just in time for the hop — wares, art, and costumes, 11am–4pm, with a link to the hop map and site. [View on Instagram](https://www.instagram.com/p/Dfar9xqvyTg/)
 - **Fri Nov 6 — [@warehousedistrictarthop](https://www.instagram.com/warehousedistrictarthop/)**: "Tomorrow!!!" — the official flyer and map for the Nov 7 hop, all 12 venues with hours and offerings. [View on Instagram](https://www.instagram.com/p/Dfag5DyPaqJ/)
 - **Fri Nov 6 — [@fluidplusdrape](https://www.instagram.com/fluidplusdrape/)**: a hop-day reminder of their Black Friday sale preview — 25% off full-price merchandise, exclusive deals, and a free tote bag with $75+, 11am–4pm. [View on Instagram](https://www.instagram.com/p/DfaZJHJP4kl/)
