@@ -3,3 +3,5 @@
 # Eugene Makerspace
 
 As you're touring the Warehouse District make sure to check out the Eugene Makerspace to see how things are made and get inspired about the many things possible. Eugene Makerspace provides a gateway for curious minds to share tools and ideas and acquire skills in an encouraging environment. Check them out, get involved!
+
+[Get directions](https://www.google.com/maps/dir/?api=1&destination=3890+West+1st+Ave.%2C+Eugene%2C+OR)
