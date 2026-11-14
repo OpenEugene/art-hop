@@ -88,7 +88,7 @@ docs/_data/hops/<YYYY-MM>.json one file per Art Hop month
 
 Why JSON and not front matter: Wikidown pages carry no front matter by
 design (the breadcrumb is line one, the title is the first heading), and
-the CLI and MCP tools would fight it. Jekyll reads `_data/*.json` natively,
+the CLI would fight it. Jekyll reads `_data/*.json` natively,
 JSON is strict, and the Oqtane side can consume the same files later.
 `_data/hops/2026-09.json` is reachable as `site.data.hops["2026-09"]`.
 

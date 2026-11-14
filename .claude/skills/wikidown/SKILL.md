@@ -7,113 +7,101 @@ description: Use whenever the user asks to read, write, search, rename, or reorg
 
 This repo's documentation lives in `/docs` and is a **Wikidown** wiki — a
 structured folder of markdown pages with `.order` navigation files. Edit it
-through the wiki MCP tools, never by writing files directly. If MCP tools are unavailable,
-fall back to the `wikidown` CLI; if that can't run either, follow
-"Last resort: no tools, no CLI" below.
+through the `wikidown` CLI, never by writing the `.md` files directly. If the
+CLI can't run, follow "Last resort: no CLI" below.
 
-Tool names below use the bare form (`wiki_write`). Your host may prefix them
-with the server name — e.g. `wikidown_wiki_write` in VS Code / GitHub Copilot.
+Run commands from the repo root; the default wiki root is `./docs`
+(override with `--root <path>`).
 
 ## Format rules
 
 - **Link path** — title form, hyphens for spaces: `/Getting-Started/Format`.
+  This is how the CLI addresses pages (`--path /Venues/Pinebox`).
 - **File on disk** — `Getting-Started/Format.md`. Subpages of `/Parent` live
   in a `Parent/` folder beside `Parent.md`.
 - **Order** — each folder's `.order` file controls navigation order. Page
-  writes update it automatically; rewrite explicitly with `wiki_reorder`.
+  writes update it automatically; rewrite explicitly with `wikidown reorder`.
 - **Internal links (body)** — relative, with `.md`, adjusted for depth:
   `[Format](../Getting-Started/Format.md)`. Images: `![map](../.attachments/map.png)`.
   GitHub renders `/docs/*.md` directly and resolves an absolute path like
   `/Getting-Started/Format` against the repo root, not the wiki root — those
   links 404 on github.com. This is only about links written inside page
-  bodies; tool *addressing* (`wiki_read path=/Getting-Started/Format`) still
-  uses the title-path form.
+  bodies; `--path` arguments still use the title-path form.
 - **Page structure** — start with `# Title`, then a one-sentence summary,
   then content under H2/H3 headings.
 
-## Tool cheat sheet
+## Command cheat sheet
 
-| Intent                  | Tool                                         |
-| ----------------------- | -------------------------------------------- |
-| What pages exist?       | `wiki_walk` (everything) or `wiki_list`      |
-| Read a page             | `wiki_read` path=/Some/Page                  |
-| Read one section        | `wiki_read` path=/Some/Page section="Heading"|
-| Create a page           | `wiki_new` path=/Some/Page (+ optional body) |
-| Change part of a page   | `wiki_edit` path=/Some/Page old=… new=…      |
-| Rewrite one section     | `wiki_write_section` path=/Some/Page section="Heading" markdown=… |
-| Add to the end          | `wiki_append` path=/Some/Page markdown=… [afterSection="Heading"] |
-| Rewrite a whole page    | `wiki_write` path=/Some/Page markdown=…      |
-| Find a topic            | `wiki_search` query=…                        |
-| Rename or move          | `wiki_move` from=/Old to=/New                |
-| Delete (with subpages)  | `wiki_delete` path=/X recursive=true         |
-| Re-sort a folder        | `wiki_reorder` folder=/X names=[a,b,c]       |
+| Intent                  | Command                                                          |
+| ----------------------- | ---------------------------------------------------------------- |
+| What pages exist?       | `wikidown walk` (everything) or `wikidown list [--path /P]`      |
+| Read a page             | `wikidown read --path /P`                                        |
+| Read one section        | `wikidown read --path /P --section "Heading"`                    |
+| Create a page           | `wikidown new --path /P [--title T] [--file F \| --stdin]`        |
+| Change part of a page   | `wikidown edit --path /P --old <text> --new <text> [--all]`      |
+| Multi-line change       | `wikidown edit --path /P --old-file F1 --new-file F2`            |
+| Delete text             | `wikidown edit --path /P --old <text> --delete`                  |
+| Rewrite one section     | `wikidown write-section --path /P --section "Heading" --file F [--create]` |
+| Add to the end          | `wikidown append --path /P [--after "Heading"] --file F`         |
+| Rewrite a whole page    | `wikidown write --path /P --file F`                              |
+| Find a topic            | `wikidown search --query <text>`                                 |
+| Rename or move          | `wikidown move --from /A --to /B [--dry-run]`                    |
+| Delete (with subpages)  | `wikidown delete --path /P --recursive`                          |
+| Re-sort a folder        | `wikidown reorder --folder /P --names a,b,c`                     |
+| Validate links          | `wikidown check-links`                                           |
 
-## CLI fallback
+For multi-line content, write it to a temp file in the scratchpad (not in
+`/docs`) and pass `--file`, or pipe it with `--stdin` using a heredoc.
+
+## Workflow
+
+1. **Orient.** Run `wikidown walk` once at the start so you know what exists.
+2. **Search first.** `wikidown search` before creating a page — you may just
+   need to update an existing one.
+3. **Read before overwriting.** `wikidown read` first; preserve voice and
+   structure. On a long page, read just the section you need with
+   `--section "Heading"` (case-insensitive, `#`s optional; a `##` section
+   includes its `###` children). A miss lists the page's headings.
+4. **Patch, don't rewrite.** Prefer `wikidown edit` for any change smaller
+   than a full rewrite — one line, one bullet, one table row, a renamed
+   heading. Pass `--old` exactly as it appears on the page and enough of it
+   to be unique — the command refuses ambiguous matches and says how many
+   times the text matched. To rewrite one whole section, `write-section` —
+   pass the new body without the heading line; the heading stays and
+   everything under it (including `###` children) is replaced. To add at the
+   end of a page or of one section, `append` (with `--after`). Use `write`
+   only for deliberate full rewrites and `new` for new pages.
+5. **Cross-link.** When you create or rename a page, update inbound links on
+   sibling pages with `wikidown edit`.
+6. **Order intentionally.** When adding a top-level concept, `wikidown
+   reorder` so the new page lands where it makes sense in navigation.
+7. **Moves rewrite links automatically.** `wikidown move` rewrites inbound
+   links and the moved page's own relative links/images for their new depth,
+   and reports what it changed. Use `--dry-run` to preview.
+8. **Verify.** Run `wikidown check-links` after structural changes.
+
+## Install
 
 ```sh
-# Install (either form; the second needs no .NET)
 dotnet tool install -g Wikidown.Cli
+# or, without .NET:
 curl -fsSL https://wikidown.org/install.sh | sh   # Windows: irm https://wikidown.org/install.ps1 | iex
-
-# Commands (default root is ./docs; override with --root <path>)
-wikidown list [--path /P]
-wikidown read --path /P [--section "Heading"]
-wikidown write --path /P [--file F | --stdin]
-wikidown edit --path /P --old <text> --new <text> [--all]   # multi-line: --old-file F --new-file F
-wikidown write-section --path /P --section "Heading" [--file F | --stdin] [--create]
-wikidown append --path /P [--after "Heading"] [--file F | --stdin]
-wikidown new --path /P [--title T] [--file F | --stdin]
-wikidown move --from /A --to /B [--dry-run]
-wikidown delete --path /P [--recursive]
-wikidown reorder --folder /P --names a,b,c
-wikidown search --query <text>
 ```
 
 ## Exporting
 
+- `wikidown export-html --output <dir> [--base-url /prefix] [--clean]`
+  renders the wiki to a static HTML site.
 - `wikidown export-pdf --output <path> [--from /P] [--title T]` combines the
-  whole wiki (or a subtree, with `--from`) into one linked PDF — cover page,
-  table of contents, per-page bookmarks matching the nav hierarchy, and
-  in-PDF jumps for internal links. CLI-only, no MCP equivalent — use it
-  whenever asked for a PDF, a printable copy, or "the whole wiki as one
-  document."
+  whole wiki (or a subtree) into one linked PDF — cover page, table of
+  contents, bookmarks matching the nav hierarchy, and in-PDF jumps for
+  internal links. Use it whenever asked for a PDF or printable copy.
 
-## Workflow
+## Last resort: no CLI
 
-1. **Orient.** Call `wiki_walk` once at the start so you know what exists.
-2. **Search first.** `wiki_search` before creating a page — you may just need
-   to update an existing one.
-3. **Read before overwriting.** `wiki_read` first; preserve voice and
-   structure. On a long page, read just the section you need with
-   `section="Heading"` (case-insensitive, `#`s optional; a `##` section
-   includes its `###` children). A miss lists the page's headings.
-4. **Patch, don't rewrite.** Prefer `wiki_edit` for any change smaller than
-   a full rewrite — one line, one bullet, one table row, a renamed heading.
-   Pass `old` exactly as it appears on the page (it may span lines; line
-   endings don't matter) and enough of it to be unique — the tool refuses
-   ambiguous matches and tells you how many times the text matched. To
-   rewrite one whole section, `wiki_write_section` — pass the new body
-   without the heading line; the heading stays and everything under it
-   (including `###` children) is replaced. To add a bullet, paragraph,
-   row, or new section at the end of a page or of one section,
-   `wiki_append` (with `afterSection` for the latter) — no need to know
-   the last line. Use `wiki_write` only for new pages or deliberate full
-   rewrites.
-5. **Cross-link.** When you create or rename a page, update inbound links on
-   sibling pages (`wiki_edit` on each — no need to rewrite them).
-6. **Order intentionally.** When adding a top-level concept, `wiki_reorder`
-   so the new page lands where it makes sense in navigation.
-7. **Moves rewrite links automatically.** `wiki_move` rewrites inbound links
-   across the wiki and the moved page's own relative links/images for their
-   new depth, and reports what it changed. Run `wiki_search` afterwards only
-   if you suspect a link the tool couldn't resolve (e.g. one already broken).
-
-## Last resort: no tools, no CLI
-
-If the `wiki_*` MCP tools are unavailable **and** the CLI cannot run (no
-.NET and an execution policy blocks the self-contained binary), wiki edits
-may be made with plain file edits — but only by maintaining every invariant
-the tools normally handle. Work through this checklist for each change:
+If the CLI cannot run (no .NET and an execution policy blocks the
+self-contained binary), wiki edits may be made with plain file edits — but
+only by maintaining every invariant the CLI normally handles:
 
 1. **Breadcrumb line.** Every page's *first line* is a breadcrumb, marked
    with an HTML comment:
@@ -130,45 +118,31 @@ the tools normally handle. Work through this checklist for each change:
 
 2. **`.order` bookkeeping.** Each folder's `.order` lists page base names
    (no `.md`), one per line, LF endings. On create: append the new page's
-   base name to its folder's `.order` (create the file if missing). On
-   delete: remove the entry. On move: remove from the old folder's file,
-   add to the new one's. Unlisted pages sort last alphabetically, so a
-   missing entry is drift, not breakage — fix it anyway.
+   base name. On delete: remove it. On move: remove from the old folder's
+   file, add to the new one's.
 
-3. **Create.** Parent page must exist: a page at `/A/B` needs `A.md` beside
-   the `A/` folder, and `A.md`'s body must link the new child
-   (`[B](A/B.md)`) — otherwise the subtree is invisible to readers and
-   flagged by `check-links`.
+3. **Create.** The parent page must exist and its body must link the new
+   child (`[B](A/B.md)`), otherwise the subtree is invisible to readers.
 
-4. **Move/rename.** The tools rewrite links automatically; by hand you must:
-   move the `.md` file *and* its same-named subpage folder; search every
-   page for inbound links to the old path and rewrite them; re-adjust the
-   moved page's own relative links/images if its folder depth changed
-   (count the `../` hops); regenerate the breadcrumb of the moved page and
-   every descendant; update both `.order` files (step 2).
+4. **Move/rename.** Move the `.md` file *and* its same-named subpage folder;
+   rewrite every inbound link; re-adjust the moved page's own relative
+   links/images if its depth changed; regenerate breadcrumbs of the moved
+   page and its descendants; update both `.order` files.
 
 5. **Delete.** Remove the page, its subpage folder (if intended), its
-   `.order` entry, and every inbound link to it from other pages.
+   `.order` entry, and every inbound link to it.
 
-6. **Published wikis.** If `_data/navigation.yml` exists, it is generated —
-   the CLI/MCP server regenerate it on every structural change, but raw
-   edits leave it stale. Don't hand-edit it; tell the user to re-run
-   `wikidown pages` (any machine that can execute it) so the published
-   site's nav catches up.
+6. **Published nav.** `_data/navigation.yml` is generated; don't hand-edit
+   it. Tell the user to re-run `wikidown pages` so it catches up.
 
-7. **Verify later.** Recommend running `wikidown check-links` from an
-   environment that can execute the CLI — it audits exactly the invariants
-   above.
-
-Treat this as a degraded mode: prefer the tools whenever they work, and say
-in your summary that edits were made manually so the user knows to verify.
+Treat this as a degraded mode and say in your summary that edits were made
+manually, so the user knows to run `wikidown check-links`.
 
 ## Don'ts
 
-- Don't write `/docs/*.md` with file-edit tools while the `wiki_*` tools or
-  the CLI are available — they do `.order`, breadcrumb, and link
-  bookkeeping for you. Manual edits are a last resort only (see above).
-- Don't `wiki_write` a whole page to change one line — that's `wiki_edit`.
+- Don't write `/docs/*.md` with file-edit tools while the CLI works.
+- Don't `wikidown write` a whole page to change one line — use `edit`.
+- Don't put temp content files inside `/docs`.
 - Don't link to GitHub blob URLs from inside the wiki, and don't use
   absolute `/Title/Path` links in page bodies — use relative `.md` links.
 - Don't rename without checking inbound references first.
