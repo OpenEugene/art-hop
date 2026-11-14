@@ -1,6 +1,6 @@
 {% comment %}
   This month's participating venues, from _data/hops/<currentHop>.json.
-  Each entry names a venue wiki page; the page body is the blurb. The
+  Each entry names a venue wiki page; its body (via wiki_body) is the blurb. The
   entry can add the map stop number, address, hours, and a note for the
   month.
 {% endcomment %}
@@ -9,15 +9,15 @@
 <div class="venues">
 {% for entry in hop.venues %}{% assign vp = site.pages | where: "path", entry.page | first %}{% if vp %}
   <article class="venue">
-    {% capture vtitle %}{% include page-title.html p=vp %}{% endcapture %}
+    {% assign vtitle = vp | wiki_title %}
     <div class="venue-head">
-      <h3>{% if entry.stop %}<span class="stop">{{ entry.stop }}</span> {% endif %}<a href="{{ vp.url | relative_url }}">{{ vtitle | strip }}</a></h3>
+      <h3>{% if entry.stop %}<span class="stop">{{ entry.stop }}</span> {% endif %}<a href="{{ vp.url | relative_url }}">{{ vtitle }}</a></h3>
       {% if entry.address and entry.address != "" %}<p class="meta">{{ entry.address }}</p>{% endif %}
       {% if entry.hours and entry.hours != "" %}<p class="meta">Open {{ entry.hours }}</p>{% endif %}
     </div>
     <div class="blurb">
       {% if entry.note %}<p class="note">{{ entry.note }}</p>{% endif %}
-      {% include page-body.html path=entry.page strip_title=true %}
+      {{ vp | wiki_body: "strip_title" }}
     </div>
   </article>
 {% endif %}{% endfor %}

@@ -1,9 +1,10 @@
-# Jekyll configuration for publishing this Wikidown wiki with GitHub Pages.
-# Installed by `wikidown pages`. Safe to edit — never overwritten unless
-# you pass --force.
+# Site configuration, rendered by `wikidown export-html` (not GitHub's
+# Jekyll builder: the templates use wiki_body / wiki_title and the
+# wikidown.layouts keys below, which only export-html understands).
+# Deployed by .github/workflows/pages.yml; GitHub Settings → Pages →
+# Source must be "GitHub Actions".
 #
-# Enable in GitHub: Settings → Pages → Source: "Deploy from a branch",
-# branch: main, folder: /docs (or wherever this file lives).
+# Preview locally: wikidown export-html --output _site --clean
 
 title: "Warehouse District Art Hop"
 description: "The Warehouse District Art Hop: a monthly art walk through the studios, galleries, and shops of west Eugene, Oregon."
@@ -12,13 +13,14 @@ description: "The Warehouse District Art Hop: a monthly art walk through the stu
 # Favicon (path relative to the wiki root):
 favicon: /assets/icons/favicon.ico
 
-# Subtrees to leave out of the published site (nav and pages). Publishing
-# only — the pages stay first-class for the CLI and editor.
-# `export-html` honors this fully; GitHub's Jekyll builder only hides them
-# from the nav, so also list them under `exclude:` below when using it.
-# wikidown:
-#   exclude_from_site:
-#     - /Internal-Notes
+# Home is the site root (index.html) and uses _layouts/landing.html; every
+# other page uses _layouts/wikidown.html.
+# To leave subtrees out of the published site, add exclude_from_site:
+# a list of page paths such as /Internal-Notes.
+wikidown:
+  root_page: /Home
+  layouts:
+    /Home: landing
 
 markdown: kramdown
 kramdown:

@@ -1,6 +1,3 @@
----
-layout: none
----
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +18,7 @@ layout: none
     {% if hop %}
     <p class="map-cta"><a href="{{ '/Map.html' | relative_url }}">{{ hop.date | date: "%B" }} art hop map here</a></p>
     {% endif %}
-    <div class="intro">{% include page-body.html path="Home.md" strip_title=true %}</div>
+    <div class="intro">{{ "Home.md" | wiki_body: "strip_title" }}</div>
     <p><a class="btn" href="{{ '/Membership.html' | relative_url }}">Become a supporting member of The Art Hop for as little as ${{ minprice }} per month</a></p>
   </section>
 
@@ -30,7 +27,7 @@ layout: none
   <section class="band">
     <div class="wrap">
       <h2>highlights from early hops</h2>
-      <div class="highlights">{% include page-body.html path="Highlights.md" strip_title=true %}</div>
+      <div class="highlights">{{ "Highlights.md" | wiki_body: "strip_title" }}</div>
     </div>
   </section>
   {% endif %}
@@ -39,10 +36,9 @@ layout: none
   {% assign fp = site.pages | where: "path", hop.feature | first %}
   {% if fp %}
   <section class="wrap feature">
-    {% capture ftitle %}{% include page-title.html p=fp %}{% endcapture %}
-    <h2>{{ ftitle | strip }}</h2>
-    {% capture ftxt %}{% include page-body.html path=hop.feature strip_title=true %}{% endcapture %}
-    <p>{{ ftxt | strip_html | strip_newlines | truncatewords: 70 }}</p>
+    <h2>{{ fp | wiki_title }}</h2>
+    {% assign ftxt = fp | wiki_body: "strip_title" %}
+    <p>{{ ftxt | strip_html | normalize_whitespace | truncatewords: 70 }}</p>
     <p><a class="btn" href="{{ fp.url | relative_url }}">Read the feature</a></p>
   </section>
   {% endif %}
@@ -61,7 +57,7 @@ layout: none
 
   <section class="wrap">
     <h2>Become a supporting member</h2>
-    {% include page-body.html path="Membership.md" strip_title=true %}
+    {{ "Membership.md" | wiki_body: "strip_title" }}
     {% include membership.html %}
   </section>
 

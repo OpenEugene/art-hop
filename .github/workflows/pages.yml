@@ -1,0 +1,28 @@
+name: pages
+
+# Renders docs/ with `wikidown export-html` and deploys it to GitHub Pages.
+# Settings → Pages → Source must be "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    uses: markdav-is/Wikidown/.github/workflows/wiki-pages.yml@main
+    with:
+      root: docs
+      cli-version: 0.13.0
