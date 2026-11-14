@@ -132,9 +132,6 @@ only by maintaining every invariant the CLI normally handles:
 5. **Delete.** Remove the page, its subpage folder (if intended), its
    `.order` entry, and every inbound link to it.
 
-6. **Published nav.** `_data/navigation.yml` is generated; don't hand-edit
-   it. Tell the user to re-run `wikidown pages` so it catches up.
-
 Treat this as a degraded mode and say in your summary that edits were made
 manually, so the user knows to run `wikidown check-links`.
 

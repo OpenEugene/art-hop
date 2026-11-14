@@ -25,4 +25,4 @@ jobs:
     uses: markdav-is/Wikidown/.github/workflows/wiki-pages.yml@main
     with:
       root: docs
-      cli-version: 0.13.0
+      cli-version: 0.14.0
