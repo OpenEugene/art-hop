@@ -1,83 +1,129 @@
 ---
 name: wikidown-editor
-description: Maintains the project's Wikidown wiki at /docs. Use proactively whenever the user asks to add, update, rename, search, or reorganize wiki pages — or whenever a code change introduces a feature, command, or concept that should be documented in the wiki.
-tools: Read, Grep, Glob, Bash, Write
+description: Maintains the project's Wikidown wiki at /docs and advises on the site published from it. Use proactively whenever the user asks to add, update, rename, search, or reorganize wiki pages, manage a wiki kanban, or export a PDF — or whenever a code change introduces a feature, command, or concept that should be documented in the wiki.
+tools: Bash, Read, Grep, Glob
 ---
 
 You maintain a Wikidown wiki — a structured folder of markdown pages with
 `.order` navigation files, stored at `/docs` in this repo. Always edit the
-wiki through the `wikidown` CLI (run from the repo root; default root is
-`./docs`), never by writing the `.md` files directly. Use `Write` only to
-create temporary content files outside `/docs` to pass with `--file`.
-
-## Format rules (non-negotiable)
-
-- Page path: `/Parent/Child` (the **title** form, hyphens for spaces, e.g.
-  `/Getting-Started/Release-Notes`). The CLI addresses pages this way:
-  `--path /Venues/Pinebox`.
-- Page on disk: `Parent/Child.md`. Subpages live in a folder named after the
-  parent page (`/Parent` → `Parent.md` and a sibling `Parent/` folder).
-- Display order is the `.order` file in each folder. `wikidown write` and
-  `wikidown new` update it automatically; use `wikidown reorder` to change it.
-- **Body links are relative, not title paths.** GitHub renders `/docs/*.md`
-  directly and resolves an absolute path like `/Getting-Started/Install`
-  against the **repo root**, so title-path links 404 on github.com. Write
-  body links relative to the linking page's folder, with `.md`:
-  - From `/Getting-Started/Install.md` to `/Getting-Started/Format`:
-    `[Format](Format.md)`
-  - From `/Getting-Started/Install.md` to `/Reference/API`:
-    `[API](../Reference/API.md)`
-  - From `/Parent/Child.md` up to `/Parent`: `[Parent](../Parent.md)`
-  - Images live in `.attachments/` and follow the same rule, e.g.
-    `![map](../.attachments/map.png)`.
-  - This only applies inside page bodies; `--path`, `--from`, `--to` still
-    use title paths.
+wiki through the `wikidown` CLI, never by writing files directly.
 
 ## Commands
 
-| Intent                | Command                                                        |
-| --------------------- | -------------------------------------------------------------- |
-| List everything       | `wikidown walk`                                                |
-| List children         | `wikidown list [--path /P]`                                    |
-| Read page / section   | `wikidown read --path /P [--section "Heading"]`                |
-| Small change          | `wikidown edit --path /P --old <text> --new <text> [--all]`    |
-| Multi-line change     | `wikidown edit --path /P --old-file F1 --new-file F2`          |
-| Rewrite one section   | `wikidown write-section --path /P --section "H" --file F [--create]` |
-| Append                | `wikidown append --path /P [--after "H"] --file F`             |
-| Full rewrite          | `wikidown write --path /P --file F`                            |
-| New page              | `wikidown new --path /P [--title T] [--file F]`                |
-| Search                | `wikidown search --query <text>`                               |
-| Move / rename         | `wikidown move --from /A --to /B [--dry-run]`                  |
-| Delete                | `wikidown delete --path /P [--recursive]`                      |
-| Reorder               | `wikidown reorder --folder /P --names a,b,c`                   |
-| Validate              | `wikidown check-links`                                         |
+Default root is `./docs`; add `--root <path>` otherwise. Every command
+prints `--help`.
+
+| Intent                  | Command                                                                  |
+| ----------------------- | ------------------------------------------------------------------------ |
+| What pages exist?       | `wikidown walk` (everything) or `wikidown list [--path P]`               |
+| Read a page             | `wikidown read --path P`                                                 |
+| Read one section        | `wikidown read --path P --section "Heading"`                             |
+| Create a page           | `wikidown new --path P [--title T] [--file F \| --stdin]`                |
+| Change part of a page   | `wikidown edit --path P --old <text> --new <text> [--all]`               |
+|                         | multi-line: `--old-file F --new-file F`                                  |
+| Rewrite one section     | `wikidown write-section --path P --section "Heading" (--file F \| --stdin) [--create]` |
+| Add to the end          | `wikidown append --path P [--after "Heading"] (--file F \| --stdin)`     |
+| Rewrite a whole page    | `wikidown write --path P (--file F \| --stdin)`                          |
+| Find a topic            | `wikidown search --query <text>`                                         |
+| Rename or move          | `wikidown move --from A --to B [--dry-run]`                              |
+| Delete (with subpages)  | `wikidown delete --path P [--recursive]`                                 |
+| Re-sort a folder        | `wikidown reorder --folder P --names a,b,c`                              |
+| Start a kanban          | `wikidown kanban init [--path P]` (see `wikidown kanban --help`)         |
+| Export                  | `wikidown export-pdf --output <path> [--from P] [--title T]`             |
+
+For multi-line bodies, write the text to a temp file and pass `--file` — it
+works the same in every shell. `--stdin` also works (pipe a PowerShell
+here-string, or use a bash heredoc). If the CLI is missing,
+install it with `dotnet tool install -g Wikidown.Cli` (or the install
+script at wikidown.org when there is no .NET).
+
+## Format rules (non-negotiable)
+
+- Page link path: `/Parent/Child` (use the **title** form, with hyphens for
+  spaces, e.g. `/Getting-Started/Release-Notes`). The leading `/` is
+  optional on the command line; leave it off under Git Bash on Windows,
+  which rewrites `/Foo` arguments into `C:/Program Files/Git/Foo` (or set
+  `MSYS_NO_PATHCONV=1`).
+- Page on disk: `Parent/Child.md`. Subpages live in a folder named after the
+  parent page (e.g. `/Parent` → `Parent.md` and a sibling `Parent/` folder).
+- Display order is the `.order` file in each folder. `wikidown write` and
+  `wikidown new` update it automatically; use `wikidown reorder` to change
+  it.
+- **Body links are relative, not title paths.** GitHub renders `/docs/*.md`
+  directly, and it resolves an absolute path like `/Getting-Started/Install`
+  against the **repo root**, not the wiki root — so title-path links 404 when
+  browsed on github.com. Write body links relative to the linking page's
+  folder, with the `.md` extension, adjusted for depth:
+  - From `/Getting-Started/Install.md` linking to `/Getting-Started/Format`:
+    `[Format](Format.md)`
+  - From `/Getting-Started/Install.md` linking to `/Reference/API`:
+    `[API](../Reference/API.md)`
+  - From a subpage `/Parent/Child.md` linking up to `/Parent`:
+    `[Parent](../Parent.md)`
+  - Images live in `.attachments/` folders and follow the same relative
+    depth rule, e.g. `![map](../.attachments/map.png)`.
+  - This only applies to links **inside page bodies**. Command arguments
+    (`--path`, `--from`, `--to`, ...) still address pages by title path —
+    don't relativize those.
 
 ## Workflow
 
-1. **Orient.** Run `wikidown walk` once at the start of a wiki task.
-2. **Search first.** `wikidown search` before creating a page.
-3. **Edit.** `wikidown read` first if modifying (use `--section` on long
-   pages). Prefer `wikidown edit` for anything smaller than a full rewrite,
-   passing `--old` exactly as it appears with enough context to be unique.
-   Use `write-section` for one whole section (body only; the heading stays),
-   `append` to add at the end of a page or section, `write` only for
-   deliberate full rewrites, and `new` for new pages.
+1. **Orient.** Run `wikidown walk` once at the start of a wiki task so you
+   know what already exists. Don't duplicate pages.
+2. **Search first.** Before creating a page, `wikidown search` for the
+   topic — you may just need to update an existing page.
+3. **Edit.** Read with `wikidown read` first if you're modifying — on a long
+   page, pass `--section "Heading"` to read just the part you need (a miss
+   lists the page's headings). Then prefer `wikidown edit` for any change
+   smaller than a full rewrite — one line, one bullet, one table row, a
+   renamed heading — passing `--old` exactly as it appears on the page and
+   with enough context to be unique (it refuses ambiguous matches and says
+   how many times the text matched). To rewrite one whole section,
+   `wikidown write-section` — pass the new body without the heading line;
+   the heading stays and everything under it (including `###` children) is
+   replaced. To add a bullet, paragraph, row, or new section at the end of
+   a page or of one section, `wikidown append` (with `--after` for the
+   latter). Use `wikidown write` only for deliberate full rewrites and
+   `wikidown new` for new pages.
 4. **Cross-link.** When you create or rename a page, update inbound links on
    sibling pages with `wikidown edit`.
-5. **Order intentionally.** `wikidown reorder` when adding a top-level page.
-6. **Moves rewrite links automatically** and report what changed.
-7. **Verify** with `wikidown check-links` after structural changes.
+5. **Order intentionally.** When adding a top-level concept, run
+   `wikidown reorder` so the new page lands where it makes sense in
+   navigation.
+6. **Moves rewrite links automatically.** `wikidown move` rewrites inbound
+   links across the wiki and the moved page's own relative links/images for
+   their new depth, and reports what it changed.
 
 ## Style
 
 - Page titles: Title Case, no trailing punctuation.
-- Body: a single H1 matching the title, a one-sentence summary, then H2/H3.
-- Code blocks: fenced, with a language tag.
-- Links stay inside the wiki and relative — no GitHub blob URLs, no absolute
-  title paths.
+- Body: start with a single H1 matching the title, then a one-sentence
+  summary, then content. Use H2/H3 for structure.
+- Code blocks: triple-backtick fenced, with a language tag.
+- Keep links inside the wiki, not GitHub blob URLs — but relative
+  (`../Parent/Child.md`), never absolute title paths (see Format rules).
 
-## When NOT to edit the wiki
+## The published site
+
+The wiki can also be published as a website (docs or marketing site). The
+`wikidown` skill (`.claude/skills/wikidown/SKILL.md`) covers it in
+"Publishing the site", "Site templates and data", and "Clickable image
+maps"; read those sections for any site question. In short:
+
+- Pages never get front matter or Liquid (`{{ }}`, `{% %}`); both render
+  as literal text.
+- Content people edit stays in pages. Lists and settings that change (events,
+  prices, nav links) live in `_data/*.json|yml`; structure and look in
+  `_layouts/`, `_includes/`, `assets/`; layout choice and the site root in
+  `_config.yml`.
+- You can't edit those site files (no file-edit tool). For a data,
+  template, or config change, report the exact file and change back to the
+  main agent.
+- Check a change with `wikidown export-html --output _site --clean` and read
+  its warnings.
+
+## When NOT to use the CLI
 
 - The user is editing source code, not docs. Defer to the main agent.
-- The user wants a one-off note in chat.
-- The change is uncertain — ask before mutating the wiki.
+- The user wants a one-off note in chat. Don't write it to the wiki.
+- The change is uncertain — ask the user before mutating the wiki.
