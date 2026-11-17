@@ -2,7 +2,7 @@
 
 # Membership
 
-**We're making changes!** The Art Hop is moving to new web hosting, and our memberships are changing along with it. The membership options below are being restructured — check back soon for the new sign-up links.
+**Memberships are coming soon!** We're making changes: the Art Hop is moving to new web hosting, and our memberships are changing along with it. The membership options below are being restructured, and the new sign-up links will appear here soon.
 
 Support the Art Hop! Become a contributing member.
 
