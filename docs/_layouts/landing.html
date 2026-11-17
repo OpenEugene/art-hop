@@ -11,6 +11,36 @@
   {% assign cfg = site.data.site %}
   {% assign hop = site.data.hops[cfg.currentHop] %}
   {% assign minprice = cfg.membership.tiers | map: "price" | sort | first %}
+  {% if hop %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Warehouse District Art Hop, {{ hop.date | date: "%B %Y" }}",
+    "startDate": "{{ hop.date }}",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Warehouse District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Eugene",
+        "addressRegion": "OR",
+        "addressCountry": "US"
+      }
+    },
+    "description": "A monthly art walk through the studios, galleries, and shops of west Eugene, Oregon. Hours vary by venue.",
+    "isAccessibleForFree": true,
+    "organizer": {
+      "@type": "Organization",
+      "name": "Warehouse District Art Hop",
+      "url": "https://warehousedistrictarthop.com/"
+    },
+    "url": "https://warehousedistrictarthop.com/Map.html"
+  }
+  </script>
+  {% endif %}
 
   <section class="hero wrap">
     <p class="kicker">the west eugene art scene</p>

@@ -8,6 +8,10 @@
 
 title: "Warehouse District Art Hop"
 description: "The Warehouse District Art Hop: a monthly art walk through the studios, galleries, and shops of west Eugene, Oregon."
+# Canonical site URL. The absolute_url filter builds Open Graph and
+# canonical URLs from this; without it they come out relative and social
+# platforms ignore the og:image. Custom domain is set in Settings → Pages.
+url: "https://warehousedistrictarthop.com"
 # Uncomment to add a GitHub link to the top bar:
 # repository_url: https://github.com/<owner>/<repo>
 # Favicon (path relative to the wiki root):

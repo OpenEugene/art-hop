@@ -14,6 +14,22 @@
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_desc | escape }}">
 <meta name="twitter:image" content="{{ '/assets/og-image.jpg' | absolute_url }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Warehouse District Art Hop",
+  "url": "https://warehousedistrictarthop.com/",
+  "logo": "https://warehousedistrictarthop.com/assets/og-image.jpg",
+  "email": "warehousedistrictarthop@gmail.com",
+  "description": "A monthly art walk through the studios, galleries, and shops of west Eugene, Oregon.",
+  "sameAs": [
+    "https://www.instagram.com/warehousedistrictarthop/",
+    "https://www.facebook.com/the.art.hop.2025/"
+  ]
+}
+</script>
 {% if site.favicon %}<link rel="icon" href="{{ site.favicon | relative_url }}" sizes="any">{% endif %}
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icons/icon-192.png' | relative_url }}">
